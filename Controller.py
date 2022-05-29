@@ -1,8 +1,9 @@
 import mysql.connector
+from Persona import Persona
 
 class Conexion():
 
-    def __init__(self, usuario, contra):
+    def __init__(self, usuario:str, contra:str):
         self.mydb = mysql.connector.connect(
             host="localhost",
             user=usuario,
@@ -11,24 +12,36 @@ class Conexion():
             )
         self.cursor = self.mydb.cursor()
 
-    def execute(self, cmd, args=0):
-        self.cursor.execute(cmd)
-
-    def showContents(self):
+    def _showContents(self):
+        print("--------------------------")
         for i in self.cursor:
             print(i)
+        print("--------------------------\n")
     
-    def insert(self, cmd, args):
-        self.cursor.execute(cmd, args)
+    def insertPersona(self, p:Persona):
+        command = f"INSERT IGNORE INTO personas (matricula, nombre, departamento, tipo) VALUES ({p.matricula}, '{p.nombre}', '{p.departamento}', '{p.tipo}')"
+        self.cursor.execute(command)
         self.mydb.commit()
 
-class Persona():
-    def __init__(self, tipo: str, nombre: str, departamento: str, matricula="n/a" ):
-        self.tipo = tipo
-        self.nombre = nombre
-        self.departamento = departamento
-        self.matricula = matricula
+    def buscarMatricula(self, matricula:int):
+        """
+        Busca a alguien por matricula dentro de la tabla personas.
+        """
+
+        self.cursor.execute(f"SELECT * FROM personas WHERE matricula = {matricula};")
+        self._showContents()
     
-    def __str__(self) -> str:
-        return (f"---\nTipo: {self.tipo}\nNombre: {self.nombre}\nDepartamento: {self.departamento}\nMatricula: {self.matricula}\n---")
-        
+    def buscarDepartamento(self, departamento:str):
+        """
+        Busca a alguien por departamento en la tabla personas.
+        """
+        self.cursor.execute(f"SELECT * FROM personas WHERE departamento = '{departamento}';")
+        self._showContents()
+    
+    def buscarTipo(self, tipo:str):
+        """
+        Filtra y lista a los usuarios del tipo seleccionado dentro del estacionamiento.
+        """
+        self.cursor.execute(f"SELECT * FROM personas WHERE tipo = '{tipo}';")
+        self._showContents()
+    

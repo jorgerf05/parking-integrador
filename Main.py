@@ -1,4 +1,6 @@
-import Controller, sys, Login, Registro
+import sys, Login, Registro
+from Persona import Persona
+from Controller import Conexion
 from PyQt5 import QtWidgets
 
 def launchLogin():
@@ -18,7 +20,11 @@ def launchRegistro():
     sys.exit(app.exec_())
 
 def main():
-    launchLogin()
-
+    conex = Conexion("jorge","SisTemas!")
+    persona = Persona("Alumno", "Aileen", "Sistemas", "01602266")
+    conex.insertPersona(persona)
+    conex.buscarMatricula("20760220")
+    conex.buscarDepartamento("Sistemas")
+    conex.buscarTipo("Alumno")
     
 if __name__=="__main__":main()
