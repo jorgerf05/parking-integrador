@@ -48,3 +48,7 @@ class Conexion():
         self.cursor.execute(f"SELECT * FROM personas WHERE tipo = '{tipo}';")
         self._showContents()
     
+    def close(self):
+        self.cursor.close()
+        self.mydb.close()
+    

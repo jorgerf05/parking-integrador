@@ -20,11 +20,6 @@ def launchRegistro():
     sys.exit(app.exec_())
 
 def main():
-    conex = Conexion("jorge","SisTemas!")
-    persona = Persona("Alumno", "Aileen", "Sistemas", "01602266")
-    conex.insertPersona(persona)
-    conex.buscarMatricula("20760220")
-    conex.buscarDepartamento("Sistemas")
-    conex.buscarTipo("Alumno")
+    launchLogin()
     
 if __name__=="__main__":main()
