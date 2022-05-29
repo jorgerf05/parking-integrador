@@ -19,6 +19,9 @@ class Conexion():
         print("--------------------------\n")
     
     def insertPersona(self, p:Persona):
+        """
+        Anexa a una persona a la tabla personas. Recibe un objeto persona.
+        """
         command = f"INSERT IGNORE INTO personas (matricula, nombre, departamento, tipo) VALUES ({p.matricula}, '{p.nombre}', '{p.departamento}', '{p.tipo}')"
         self.cursor.execute(command)
         self.mydb.commit()
