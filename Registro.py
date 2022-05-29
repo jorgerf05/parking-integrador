@@ -14,8 +14,6 @@ from PyQt5.QtCore import QTime, QTimer
 import time, Controller, sys
 
 
-
-
 class Ui_SecondWindow(object):
         def __init__(self, usuario:str, contra:str) -> None:
                 self.user = usuario
@@ -25,7 +23,6 @@ class Ui_SecondWindow(object):
                 except:
                         print("Usuario y contra incorrectos. Saliendo...")
                         sys.exit()
-
                
         def setupUi(self, MainWindow):
                 MainWindow.setObjectName("MainWindow")
@@ -201,12 +198,3 @@ class Ui_SecondWindow(object):
 
         def mysqlLogin(self):
                 Controller.Conexion(self.txtusuario.text(), self.lineEdit_2.text())
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_SecondWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    ui.showTime()
-    sys.exit(app.exec_())
