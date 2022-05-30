@@ -22,7 +22,7 @@ class Conexion():
         """
         Anexa a una persona a la tabla personas. Recibe un objeto persona.
         """
-        command = f"INSERT IGNORE INTO personas (matricula, nombre, departamento, tipo) VALUES ({p.matricula}, '{p.nombre}', '{p.departamento}', '{p.tipo}')"
+        command = f"INSERT IGNORE INTO personas (matricula, nombre, edificio, tipo) VALUES ({p.matricula}, '{p.nombre}', '{p.edificio}', '{p.tipo}')"
         self.cursor.execute(command)
         self.mydb.commit()
 
@@ -34,11 +34,11 @@ class Conexion():
         self.cursor.execute(f"SELECT * FROM personas WHERE matricula = {matricula};")
         self._showContents()
     
-    def buscarDepartamento(self, departamento:str):
+    def buscarEdificio(self, edificio:str):
         """
-        Busca a alguien por departamento en la tabla personas.
+        Busca a alguien por edificio en la tabla personas.
         """
-        self.cursor.execute(f"SELECT * FROM personas WHERE departamento = '{departamento}';")
+        self.cursor.execute(f"SELECT * FROM personas WHERE edificio = '{edificio}';")
         self._showContents()
     
     def buscarTipo(self, tipo:str):
