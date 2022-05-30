@@ -1,8 +1,7 @@
 from datetime import datetime
-
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QTimer
-import Controller
+import Conexion
 from Persona import Persona
 
 class Ui(QtWidgets.QMainWindow):
@@ -52,7 +51,7 @@ class Ui(QtWidgets.QMainWindow):
 
     def _login(self):
         try: 
-            self.conexion = Controller.Conexion(self.txtUsuario.text(), self.txtContra.text())
+            self.conexion = Conexion.Conexion(self.txtUsuario.text(), self.txtContra.text())
             self.isConnected = True
         except:
             self.isConnected = False

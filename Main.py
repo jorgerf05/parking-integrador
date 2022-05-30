@@ -1,6 +1,4 @@
 import sys, Interfaz
-from Persona import Persona
-from Controller import Conexion
 from PyQt5 import QtWidgets
 
 def main():
