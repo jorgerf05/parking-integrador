@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>479</height>
+    <width>675</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Registro</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../proyectoo/recursos.qrc">
+   <iconset resource="lenguajes y automatas/proyecto/recursos.qrc">
     <normaloff>../imagenes/registro-en-linea.png</normaloff>../imagenes/registro-en-linea.png</iconset>
   </property>
   <property name="styleSheet">
@@ -45,81 +45,31 @@
        <height>449</height>
       </rect>
      </property>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="iconocarro">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>20</y>
-        <width>101</width>
-        <height>91</height>
+        <x>210</x>
+        <y>0</y>
+        <width>91</width>
+        <height>81</height>
        </rect>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="../proyectoo/recursos.qrc">../imagenes/709011.png</pixmap>
+       <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">../imagenes/709011.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QTableWidget" name="tableWidget">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>130</y>
-        <width>401</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <row>
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Disponibilidad</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Horario de entrada</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Horario de Salida</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string/>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string/>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string/>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string/>
-       </property>
-      </column>
-     </widget>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>40</y>
-        <width>251</width>
+        <y>70</y>
+        <width>281</width>
         <height>51</height>
        </rect>
       </property>
@@ -134,10 +84,10 @@ color: rgb(0, 73, 107);</string>
      <widget class="QLCDNumber" name="lcdNumber">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>340</y>
-        <width>331</width>
-        <height>71</height>
+        <x>30</x>
+        <y>300</y>
+        <width>261</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -149,13 +99,91 @@ color: rgb(0, 85, 255);</string>
        <number>8</number>
       </property>
      </widget>
+     <widget class="QLabel" name="lbllugar1">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Lugar1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbllugar2">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>160</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Lugar2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="btnlugar3_2">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>160</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Lugar 3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnlugar1">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>190</y>
+        <width>51</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnlugar2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>190</y>
+        <width>51</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnlugar3">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>190</y>
+        <width>51</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>90</y>
+      <y>100</y>
       <width>361</width>
       <height>351</height>
      </rect>
@@ -174,7 +202,7 @@ color: rgb(0, 85, 255);</string>
       <rect>
        <x>40</x>
        <y>60</y>
-       <width>261</width>
+       <width>301</width>
        <height>31</height>
       </rect>
      </property>
@@ -190,8 +218,8 @@ color: rgb(255, 255, 255);
     <widget class="QLineEdit" name="txtnombre">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>140</y>
+       <x>90</x>
+       <y>120</y>
        <width>211</width>
        <height>20</height>
       </rect>
@@ -204,9 +232,9 @@ background-color: rgb(0, 85, 127);</string>
     <widget class="QLabel" name="lblnombre">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>140</y>
-       <width>71</width>
+       <x>20</x>
+       <y>120</y>
+       <width>61</width>
        <height>16</height>
       </rect>
      </property>
@@ -219,26 +247,12 @@ color: rgb(255, 255, 255);
       <string>Nombre</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="txtdepartamento">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>180</y>
-       <width>211</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(0, 85, 127);</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="lbl_departamento">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>180</y>
-       <width>111</width>
+       <y>190</y>
+       <width>61</width>
        <height>16</height>
       </rect>
      </property>
@@ -248,14 +262,14 @@ color: rgb(255, 255, 255);
 </string>
      </property>
      <property name="text">
-      <string>Departamento</string>
+      <string>Edificios</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>220</y>
+       <x>20</x>
+       <y>230</y>
        <width>81</width>
        <height>16</height>
       </rect>
@@ -272,8 +286,8 @@ color: rgb(255, 255, 255);
     <widget class="QLineEdit" name="txtmatricula">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>220</y>
+       <x>90</x>
+       <y>230</y>
        <width>211</width>
        <height>20</height>
       </rect>
@@ -283,57 +297,132 @@ color: rgb(255, 255, 255);
 background-color: rgb(0, 85, 127);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonguardar">
+    <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>270</y>
-       <width>121</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 85, 127);
-color: rgb(255, 255, 255);
-</string>
-     </property>
-     <property name="text">
-      <string>Guardar registro </string>
-     </property>
-     <property name="icon">
-      <iconset resource="../proyectoo/recursos.qrc">
-       <normaloff>../imagenes/salvar.png</normaloff>../imagenes/salvar.png</iconset>
-     </property>
-     <property name="shortcut">
-      <string notr="true"/>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonbuscar">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>270</y>
-       <width>141</width>
+       <x>90</x>
+       <y>150</y>
+       <width>211</width>
        <height>21</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(0, 85, 127);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <item>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Docente</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Administrativo</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Alumnado</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Visitante</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>160</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;Ebrima&quot;;
 color: rgb(255, 255, 255);
 </string>
      </property>
      <property name="text">
-      <string>Buscar lugares</string>
+      <string>Tipo</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>190</y>
+       <width>211</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 85, 127);</string>
+     </property>
+     <item>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>200</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>300</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>400</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Cafeteria</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="btnregistro">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>280</y>
+       <width>161</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 85, 127);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Guardar registro</string>
      </property>
      <property name="icon">
-      <iconset resource="../proyectoo/recursos.qrc">
-       <normaloff>../imagenes/lupa.png</normaloff>../imagenes/lupa.png</iconset>
+      <iconset resource="lenguajes y automatas/proyecto/recursos.qrc">
+       <normaloff>../imagenes/salvar.png</normaloff>../imagenes/salvar.png</iconset>
      </property>
     </widget>
    </widget>
@@ -350,28 +439,16 @@ color: rgb(255, 255, 255);
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../proyectoo/recursos.qrc">../imagenes/estacionamiento.jpg</pixmap>
+     <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">../imagenes/estacionamiento.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
  </widget>
  <resources>
-  <include location="../proyectoo/recursos.qrc"/>
+  <include location="lenguajes y automatas/proyecto/recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

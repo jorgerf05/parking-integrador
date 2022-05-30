@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>552</width>
+    <width>585</width>
     <height>403</height>
    </rect>
   </property>
@@ -14,8 +14,8 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="recursos.qrc">
-    <normaloff>:/proyecto/imagenes/iniciar-sesion.png</normaloff>:/proyecto/imagenes/iniciar-sesion.png</iconset>
+   <iconset resource="lenguajes y automatas/proyecto/recursos.qrc">
+    <normaloff>:/proyecto/../imagenes/iniciar-sesion.png</normaloff>:/proyecto/../imagenes/iniciar-sesion.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.585, y1:0.881, x2:1, y2:0, stop:0.352273 rgba(18, 19, 48, 255), stop:0.948864 rgba(0, 0, 117, 255));
@@ -28,7 +28,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
      <rect>
       <x>250</x>
       <y>20</y>
-      <width>301</width>
+      <width>331</width>
       <height>441</height>
      </rect>
     </property>
@@ -66,7 +66,7 @@ font: 75 12pt &quot;Arial Narrow&quot;;
       <rect>
        <x>100</x>
        <y>230</y>
-       <width>191</width>
+       <width>211</width>
        <height>20</height>
       </rect>
      </property>
@@ -131,7 +131,7 @@ border-color: rgb(255, 0, 0);</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="recursos.qrc">:/proyecto/imagenes/contrasena.png</pixmap>
+      <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">../imagenes/contrasena.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -147,14 +147,14 @@ border-color: rgb(255, 0, 0);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/prefijoNuevo/contrasena.png);
-background-image: url(:/prefijoNuevo/usuario.png);</string>
+      <string notr="true">background-image: url(../imagenes/contrasena.png);
+background-image: url(../imagenes/usuario.png);</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="recursos.qrc">:/proyecto/imagenes/usuario.png</pixmap>
+      <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">:../imagenes/usuario.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -177,38 +177,11 @@ color:rgb(170, 255, 255)</string>
       <string>Ingresar </string>
      </property>
      <property name="icon">
-      <iconset resource="recursos.qrc">
-       <normaloff>:/proyecto/imagenes/ingresar (1).png</normaloff>:/proyecto/imagenes/ingresar (1).png</iconset>
+      <iconset resource="lenguajes y automatas/proyecto/recursos.qrc">
+       <normaloff>../imagenes/ingresar (1).png</normaloff>../imagenes/ingresar (1).png</iconset>
      </property>
      <property name="shortcut">
       <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>270</y>
-       <width>171</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 9pt &quot;MS Gothic&quot;;
-color:rgb(255, 255, 255);
-border-color:  rgb(255, 0, 0);</string>
-     </property>
-     <property name="dragEnabled">
-      <bool>false</bool>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="lblcontra">
@@ -241,15 +214,72 @@ font: 75 12pt &quot;Arial Narrow&quot;;
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/programador.png);</string>
+      <string notr="true">background-image: url(../imagenes/programador.png);</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="recursos.qrc">:/proyecto/imagenes/programador.png</pixmap>
+      <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">../imagenes/programador.png</pixmap>
      </property>
      <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtcontra">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>270</y>
+       <width>191</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Gothic</family>
+       <pointsize>5</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="accessibleName">
+      <string notr="true"/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font:5pt &quot;MS Gothic&quot;;
+color:rgb(255, 255, 255);
+border-color: rgb(255, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+     <property name="dragEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="cursorMoveStyle">
+      <enum>Qt::VisualMoveStyle</enum>
+     </property>
+     <property name="clearButtonEnabled">
       <bool>true</bool>
      </property>
     </widget>
@@ -260,9 +290,9 @@ font: 75 12pt &quot;Arial Narrow&quot;;
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>10</y>
-      <width>541</width>
+      <width>571</width>
       <height>71</height>
      </rect>
     </property>
@@ -315,7 +345,7 @@ font: 75 30pt &quot;Arial Narrow&quot;;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="recursos.qrc">:/proyecto/imagenes/carros.png</pixmap>
+     <pixmap resource="lenguajes y automatas/proyecto/recursos.qrc">../imagenes/carros.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -325,7 +355,7 @@ font: 75 30pt &quot;Arial Narrow&quot;;
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="recursos.qrc"/>
+  <include location="lenguajes y automatas/proyecto/recursos.qrc"/>
  </resources>
  <connections/>
 </ui>
