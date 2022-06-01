@@ -50,6 +50,14 @@ class Conexion():
         self.cursor.execute(f"SELECT * FROM personas WHERE tipo = '{tipo}';")
         self._showContents()
     
+    def leerPersonas(self)->list:
+        personas = []
+        self.cursor.execute("select * from personas")
+        for p in self.cursor:
+            personas.append(Persona(matricula=p[0], nombre=p[1], edificio=p[2], tipo=p[3]))
+        
+        return personas
+    
     def close(self):
         self.cursor.close()
         self.mydb.close()

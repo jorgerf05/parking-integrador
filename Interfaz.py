@@ -48,7 +48,7 @@ class Ui(QtWidgets.QMainWindow):
         self.btnLugar_3.clicked.connect(partial(self._abrirDialogo, 3))
     
     def _conexionesDialogo(self):
-        self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo, self.txtOcupante))
+        self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo))
         self.btnLiberar.clicked.connect(partial(self._liberarLugar, self.activo))
 
     def _changeWindow(self):
@@ -60,6 +60,7 @@ class Ui(QtWidgets.QMainWindow):
             self._variablesRegistro()
             self._conexionesRegistro()
             self._reloj()
+            self._leerPersonas()
             self._leerLugares()
             self.show()
         else:
@@ -81,22 +82,58 @@ class Ui(QtWidgets.QMainWindow):
         self._conexionesDialogo()
         self.window.show()
 
-    def _ocuparLugar(self, id:int, ocupante:int):
-        try: 
-            self.conexion.ocuparLugar(ocupante, id)
+    def _ocuparLugar(self, id:int):
+        ocupante = int(self.txtOcupante.text())
+        for p in self.personas:
+            if p.matricula == ocupante:
+                self.existe = True
+                break
+            else: self.existe = False
 
-            if (id == 1):
-                self.btnLugar_1.setStyleSheet("background-color : yellow")
-                self.btnLugar_1.setText(str(ocupante))
-            elif (id == 2):
-                self.btnLugar_2.setStyleSheet("background-color : yellow")
-                self.btnLugar_2.setText(str(ocupante))
-            elif (id == 3):
-                self.btnLugar_3.setStyleSheet("background-color : yellow")
-                self.btnLugar_3.setText(str(ocupante))
-        except:
-            self._mensajeError("Error", "Error de inserción", "No se pudo insertar")
+        if self.existe:
+            try: 
+                self.conexion.ocuparLugar(ocupante, id)
+
+                if (id == 1):
+                    self.btnLugar_1.setStyleSheet("background-color : yellow")
+                    self.btnLugar_1.setText(str(ocupante))
+                elif (id == 2):
+                    self.btnLugar_2.setStyleSheet("background-color : yellow")
+                    self.btnLugar_2.setText(str(ocupante))
+                elif (id == 3):
+                    self.btnLugar_3.setStyleSheet("background-color : yellow")
+                    self.btnLugar_3.setText(str(ocupante))
+            except:
+                self._mensajeError("Error", "Error de inserción", "No se pudo insertar")
+
+        else:
+            self._mensajeError("Error", "Error en la búsqueda", "No existe la persona en la BBDD")
     
+    def _initOcupar(self, id: int, ocupante):
+        for p in self.personas:
+            if p.matricula == ocupante:
+                self.existe = True
+                break
+            else: self.existe = False
+
+        if self.existe:
+            try:
+
+                if (id == 1):
+                    self.btnLugar_1.setStyleSheet("background-color : yellow")
+                    self.btnLugar_1.setText(str(ocupante))
+                elif (id == 2):
+                    self.btnLugar_2.setStyleSheet("background-color : yellow")
+                    self.btnLugar_2.setText(str(ocupante))
+                elif (id == 3):
+                    self.btnLugar_3.setStyleSheet("background-color : yellow")
+                    self.btnLugar_3.setText(str(ocupante))
+            except:
+                self._mensajeError("Error", "Error de inserción", "No se pudo insertar")
+
+        else:
+            self._mensajeError("Error", "Error en la búsqueda", "No existe la persona en la BBDD")        
+
     def _liberarLugar(self, id:int):
         try: 
             print("ola", id)
@@ -121,7 +158,10 @@ class Ui(QtWidgets.QMainWindow):
             if l.estado == 0:
                 self._liberarLugar(l.id)
             else:
-                self._ocuparLugar(l.id, l.ocupante)
+                self._initOcupar(l.id, l.ocupante)
+    
+    def _leerPersonas(self):
+        self.personas = self.conexion.leerPersonas()
 
     def _login(self):
         try: 
