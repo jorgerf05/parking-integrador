@@ -34,7 +34,9 @@ class Ui(QtWidgets.QMainWindow):
     def _variablesDialogo(self):
         self.txtOcupante = self.window.findChild(QtWidgets.QLineEdit, "txtocupante")
         self.btnOcupar = self.window.findChild(QtWidgets.QPushButton, "btnOcupar")
+        self.btnOcupar.setText("Ocupar")
         self.btnLiberar = self.window.findChild(QtWidgets.QPushButton, "btnLiberar")
+        self.btnLiberar.setText("Liberar")
     
     def _conexionesLogin(self):
         self.btnIngresar.clicked.connect(self._login)
@@ -46,16 +48,19 @@ class Ui(QtWidgets.QMainWindow):
         self.btnLugar_3.clicked.connect(partial(self._abrirDialogo, 3))
     
     def _conexionesDialogo(self):
-        self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo))
+        self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo, self.txtOcupante))
+        self.btnLiberar.clicked.connect(partial(self._liberarLugar, self.activo))
 
     def _changeWindow(self):
 
         if self.isConnected:
+            self.conexion._setupParking()
             self.close()
             uic.loadUi('ui/registro.ui', self)
             self._variablesRegistro()
             self._conexionesRegistro()
             self._reloj()
+            self._leerLugares()
             self.show()
         else:
             self._mensajeError("Error", "Error de conexión", "Usuario y contraseña incorrectos")
@@ -68,7 +73,7 @@ class Ui(QtWidgets.QMainWindow):
             self.activo = 2
         elif (id == 3):
             self.activo = 3
-        print (self.activo)
+
         self.window = QtWidgets.QMainWindow()
         uic.loadUi('ui/dialogo.ui', self.window)
         #Desmadre de variables aqui
@@ -76,16 +81,47 @@ class Ui(QtWidgets.QMainWindow):
         self._conexionesDialogo()
         self.window.show()
 
-    def _ocuparLugar(self, id:int):
-        #Coidgo de verdad
+    def _ocuparLugar(self, id:int, ocupante:int):
+        try: 
+            self.conexion.ocuparLugar(ocupante, id)
 
-        #Colores
-        if (id == 1):
-            self.btnLugar_1.setStyleSheet("background-color : yellow")
-        elif (id == 2):
-            self.btnLugar_2.setStyleSheet("background-color : yellow")
-        elif (id == 3):
-            self.btnLugar_3.setStyleSheet("background-color : yellow")
+            if (id == 1):
+                self.btnLugar_1.setStyleSheet("background-color : yellow")
+                self.btnLugar_1.setText(str(ocupante))
+            elif (id == 2):
+                self.btnLugar_2.setStyleSheet("background-color : yellow")
+                self.btnLugar_2.setText(str(ocupante))
+            elif (id == 3):
+                self.btnLugar_3.setStyleSheet("background-color : yellow")
+                self.btnLugar_3.setText(str(ocupante))
+        except:
+            self._mensajeError("Error", "Error de inserción", "No se pudo insertar")
+    
+    def _liberarLugar(self, id:int):
+        try: 
+            print("ola", id)
+            self.conexion. liberarLugar(id)
+
+            if (id == 1):
+                self.btnLugar_1.setStyleSheet("background-color : white")
+                self.btnLugar_1.setText("Libre")
+            elif (id == 2):
+                self.btnLugar_2.setStyleSheet("background-color : white")
+                self.btnLugar_2.setText("Libre")
+            elif (id == 3):
+                self.btnLugar_3.setStyleSheet("background-color : white")
+                self.btnLugar_3.setText("Libre")
+        except:
+            self._mensajeError("Error", "Error de inserción", "No se pudo liberar")
+
+    def _leerLugares(self):
+        lugares = self.conexion.leerLugares()
+        for l in lugares:
+            print(l.id)
+            if l.estado == 0:
+                self._liberarLugar(l.id)
+            else:
+                self._ocuparLugar(l.id, l.ocupante)
 
     def _login(self):
         try: 
