@@ -1,4 +1,5 @@
 from datetime import datetime
+from functools import partial
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import QTimer
 import Conexion
@@ -27,15 +28,25 @@ class Ui(QtWidgets.QMainWindow):
         self.cbxEdificio = self.findChild(QtWidgets.QComboBox, "comboBox_2")
         self.btnRegistrar = self.findChild(QtWidgets.QPushButton, "btnregistro")
         self.btnLugar_1 = self.findChild(QtWidgets.QPushButton, "btnlugar1")
-        self.btnLugar_1 = self.findChild(QtWidgets.QPushButton, "btnlugar1")
         self.btnLugar_2 = self.findChild(QtWidgets.QPushButton, "btnlugar2")
         self.btnLugar_3 = self.findChild(QtWidgets.QPushButton, "btnlugar3")
 
+    def _variablesDialogo(self):
+        self.txtOcupante = self.window.findChild(QtWidgets.QLineEdit, "txtocupante")
+        self.btnOcupar = self.window.findChild(QtWidgets.QPushButton, "btnOcupar")
+        self.btnLiberar = self.window.findChild(QtWidgets.QPushButton, "btnLiberar")
+    
     def _conexionesLogin(self):
         self.btnIngresar.clicked.connect(self._login)
 
     def _conexionesRegistro(self):
         self.btnRegistrar.clicked.connect(self._registrarPersona)
+        self.btnLugar_1.clicked.connect(partial(self._abrirDialogo, 1))
+        self.btnLugar_2.clicked.connect(partial(self._abrirDialogo, 2))
+        self.btnLugar_3.clicked.connect(partial(self._abrirDialogo, 3))
+    
+    def _conexionesDialogo(self):
+        self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo))
 
     def _changeWindow(self):
 
@@ -48,6 +59,33 @@ class Ui(QtWidgets.QMainWindow):
             self.show()
         else:
             self._mensajeError("Error", "Error de conexión", "Usuario y contraseña incorrectos")
+    
+    def _abrirDialogo(self, id:int):
+
+        if (id == 1):
+            self.activo = 1
+        elif (id == 2):
+            self.activo = 2
+        elif (id == 3):
+            self.activo = 3
+        print (self.activo)
+        self.window = QtWidgets.QMainWindow()
+        uic.loadUi('ui/dialogo.ui', self.window)
+        #Desmadre de variables aqui
+        self._variablesDialogo()
+        self._conexionesDialogo()
+        self.window.show()
+
+    def _ocuparLugar(self, id:int):
+        #Coidgo de verdad
+
+        #Colores
+        if (id == 1):
+            self.btnLugar_1.setStyleSheet("background-color : yellow")
+        elif (id == 2):
+            self.btnLugar_2.setStyleSheet("background-color : yellow")
+        elif (id == 3):
+            self.btnLugar_3.setStyleSheet("background-color : yellow")
 
     def _login(self):
         try: 
