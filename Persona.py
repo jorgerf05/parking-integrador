@@ -4,6 +4,5 @@ class Persona():
         self.nombre = nombre
         self.edificio = edificio
         self.matricula = matricula
-    
     def __str__(self) -> str:
         return (f"---\nTipo: {self.tipo}\nNombre: {self.nombre}\nEdificio: {self.edificio}\nMatricula: {self.matricula}\n---")
