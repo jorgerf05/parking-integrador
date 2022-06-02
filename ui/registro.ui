@@ -109,7 +109,7 @@ color: rgb(0, 85, 255);</string>
        </rect>
       </property>
       <property name="text">
-       <string>Lugar1</string>
+       <string>Lugar 1</string>
       </property>
      </widget>
      <widget class="QLabel" name="lbllugar2">

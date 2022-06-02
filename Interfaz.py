@@ -50,6 +50,7 @@ class Ui(QtWidgets.QMainWindow):
     def _conexionesDialogo(self):
         self.btnOcupar.clicked.connect(partial(self._ocuparLugar, self.activo))
         self.btnLiberar.clicked.connect(partial(self._liberarLugar, self.activo))
+        self.btnRegistrar.clicked.connect(self._registrarPersona)
 
     def _changeWindow(self):
 
@@ -193,5 +194,8 @@ class Ui(QtWidgets.QMainWindow):
             self.lcdNumber.display(formatted_time)
 
     def _registrarPersona(self):
+        try:
             persona = Persona(self.cbxTipo.currentText(), self.txtNombre.text(), self.cbxEdificio.currentText(), self.txtMatricula.text())
             self.conexion.insertPersona(persona)
+        except:
+            print("No se armo pa")
