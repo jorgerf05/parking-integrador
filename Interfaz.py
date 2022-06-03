@@ -8,11 +8,11 @@ from Persona import Persona
 class Ui(QtWidgets.QMainWindow):
 
     def __init__(self):
-        super(Ui, self).__init__() # Call the inherited classes __init__ method
-        uic.loadUi('ui/Login.ui', self) # Load the .ui file
+        super(Ui, self).__init__()
+        uic.loadUi('ui/Login.ui', self) 
         self._variablesLogin()
         self._conexionesLogin()
-        self.show() # Show the GUI
+        self.show() 
 
     def _variablesLogin(self):
         self.isConnected = False
